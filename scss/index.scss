@@ -1,0 +1,52 @@
+$pageWidth: 320;
+$theme: #d33a31;
+$fontColor: #333;
+
+@function px($size) {
+  $remSize: $size / $pageWidth * 10;
+  @return #{$remSize}rem;
+}
+// clear style
+p, span, a {
+    font-size: px(16);
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+h2,h3,h4,h5,h6 {margin: 0;padding: 0;}
+a {text-decoration: none;}
+ul > li {list-style: none;}
+
+
+body {
+    margin: 0;padding: 0;
+    background-color: #fff;
+}
+
+.top {
+    width: px(600);
+    height: px(305);
+    background: #979797;
+    margin: px(20) auto 0;
+    border-radius: px(21);
+    background: rgb(146,147,147);
+    background: linear-gradient(180deg, rgba(146,147,147,1) 0%, rgba(255,255,255,1) 50%, rgba(146,147,147,1) 100%);
+
+    p {
+        color: #000000;
+        text-align: center;
+        font-weight: bold;
+        margin: 18px 0;
+
+        &.large-title {
+            font-size: px(67);
+            text-transform: uppercase;
+        }
+        &.small-title {
+            font-size: px(60);
+        }
+    }
+
+}
