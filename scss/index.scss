@@ -7,6 +7,10 @@ $fontColor: #333;
   @return #{$remSize}rem;
 }
 // clear style
+
+* {
+    box-sizing: border-box;
+}
 p, span, a {
     font-size: px(16);
     padding: 0;
@@ -38,15 +42,111 @@ body {
         color: #000000;
         text-align: center;
         font-weight: bold;
-        margin: 18px 0;
+        margin: 14px 0;
 
         &.large-title {
-            font-size: px(67);
+            font-size: px(70);
             text-transform: uppercase;
         }
         &.small-title {
-            font-size: px(60);
+            font-size: px(67);
         }
     }
 
+}
+
+.middle-wrap {
+    display: flex;
+    margin: px(15) px(20) px(230) px(12);
+    justify-content: center;
+
+    .trip-info {
+        width: px(310);
+        height: px(300);
+        border-radius: px(10);
+        border: 1px solid #222;
+        margin-right: px(20);
+        padding: px(30) 0 0 px(9);
+
+        p {
+            text-align: left;
+            color: #000000;
+            font-weight: bold;
+            // margin: px(18) 0;
+            font-weight: bold;
+
+            &.trip-num {
+                font-size: px(37);
+                margin-bottom: px(26);
+                
+            }
+            &.trip-person {
+                font-size: px(42);
+            }
+        }
+
+    }
+    .trip-code {
+        max-width: px(310);
+        max-height: px(310);
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.time-wrap {
+    text-align: center;
+    p {
+        font-weight: bold;
+        font-size: px(45);
+        &.time {
+            margin-bottom: px(15);
+        }
+    }
+    
+}
+
+#colorBar {
+    margin-top: px(20);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    animation: blink 1s infinite steps(1, start);
+    .color {
+        width: px(207);
+        height: px(50);
+    }
+}
+
+@keyframes blink {
+     0%{opacity: 1;}
+     100%{opacity: 1;}
+    50%{opacity: 0;}
+}
+
+footer {
+    margin-top: px(26);
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+
+    .back {
+        margin: 0 px(56);
+        font-size: px(32);
+        vertical-align: middle;
+        color: #007BF9;
+    }
+
+    .count-down {
+        font-size: px(38);
+        color: #000000;
+        font-weight: bold;
+    }
+}
+
+.footer-after {
+    width: 100%;
+    height: px(30);
 }

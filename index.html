@@ -15,5 +15,76 @@
         <p class="small-title">to</p>
         <p class="large-title">pr JCT</p>
     </div>
+
+    <div class="middle-wrap">
+        <div class="trip-info">
+            <p class="trip-num">10 Trip</p>
+            <p class="trip-person">1 Adult</p>
+        </div>
+        <div class="trip-code">
+            <img src="./code.png" alt="">
+        </div>
+    </div>
+
+    <div class="time-wrap" id='timer'>
+        <p class="time"></p>
+        <p class="date"></p>
+    </div>
+
+    <div class="color-bar" id="colorBar"></div> 
+    
+    <footer>
+        <p class="back">Back</p>
+        <p class='count-down' id='countDown'></p>
+    </footer>
+    <div class="footer-after"></div>
+
+
+    <script src="./js/timer.js"></script>
+    <script src="./js/color.js"></script>
+    <script>
+        function CountDown(ele, duration){
+                this.ele = ele;
+                this.timeToCountDown = duration;
+        }
+
+        CountDown.prototype = {
+            render(time){
+                this.ele.textContent = 'Expires in ' + time.day + ':' + time.hours + ':' + time.minutes + ':' + time.seconds;
+            },
+            startCount(){
+                this.render(this.timeToCountDown);
+                let update = ()=>{
+                    setTimeout(() => {
+                        if (this.timeToCountDown > 0) {
+                            this.timeToCountDown--;
+                            let newTime = this.formate(this.timeToCountDown);
+                            this.render(newTime);
+                            update();
+                        } else { alert('expired!'); };
+                    }, 1000);
+                };
+                update();
+            },
+
+            formate(time){
+                let timeSet = {
+                    day: '00',
+                    hours: this.convertSmallTime(Math.floor(time / 60 / 60)),
+                    minutes: this.convertSmallTime(Math.floor((time / 60)) % 60),
+                    seconds: this.convertSmallTime(time % 60),
+                }
+                return timeSet;
+            },
+            convertSmallTime(time) {
+                let newTime = time < 10 ? '0' + time : time;
+                return newTime;
+            },
+
+        }
+
+        let time = new CountDown(document.querySelector('#countDown'), 60*60*2.8);
+        time.startCount();
+    </script>
 </body>
 </html>
