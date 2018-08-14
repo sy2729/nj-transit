@@ -34,14 +34,18 @@
     <div class="color-bar" id="colorBar"></div> 
     
     <footer>
-        <p class="back">Back</p>
+        <p class="back" id="back">Back</p>
         <p class='count-down' id='countDown'></p>
     </footer>
     <div class="footer-after"></div>
 
+    <div id='colorInput'></div>
 
+
+    <script src="./js/eventHub.js"></script>
     <script src="./js/timer.js"></script>
     <script src="./js/color.js"></script>
+    <script src="./js/color-input.js"></script>
     <script>
         function CountDown(ele, duration){
                 this.ele = ele;
@@ -85,6 +89,12 @@
 
         let time = new CountDown(document.querySelector('#countDown'), 60*60*2.8);
         time.startCount();
+
+
+        // listen to color-input component Open
+        document.querySelector('#back').addEventListener('click', ()=>{
+            eventHub.emit('open-color-input');
+        })
     </script>
 </body>
 </html>

@@ -57,7 +57,7 @@ body {
 
 .middle-wrap {
     display: flex;
-    margin: px(15) px(20) px(230) px(12);
+    margin: px(15) px(20) px(210) px(12);
     justify-content: center;
 
     .trip-info {
@@ -149,4 +149,14 @@ footer {
 .footer-after {
     width: 100%;
     height: px(30);
+}
+
+// input color
+#colorInput > form {
+    display: none;
+
+
+    &.active {
+        display: block;
+    }
 }

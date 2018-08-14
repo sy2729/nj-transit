@@ -36,7 +36,19 @@
 
         },
         bindEventHub(){
+            eventHub.on('color-inputed', (data)=>{
+                let colors = [];
+                for( i in data) {
+                    colors.push(data[i])
+                }
+                
+                this.changeColor(colors);
+            })
+        },
 
+        changeColor(data){
+            this.model.data.colors = data;
+            this.view.render(this.model.data);
         }
     };
 
