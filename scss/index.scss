@@ -152,11 +152,39 @@ footer {
 }
 
 // input color
-#colorInput > form {
+#colorInput {
+    position: absolute;
+    bottom: 0;
     display: none;
-
-
+    transition: transform .4s ease;
+    transform: translateY(50px);
+    background: #f4f4f4;
+    height: 300px;
+    width: 100%;
+    
     &.active {
+        transform: translateY(0);
         display: block;
+    }
+
+    form {
+        display: flex;
+        height: 100%;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        label {
+            margin: 10px 0;
+        }
+        
+
+        .close {
+            color: #0066A1;
+            position: absolute;
+            right: px(20);
+            top: px(20);
+        }
     }
 }

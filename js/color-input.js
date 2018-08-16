@@ -3,6 +3,7 @@
         el: '#colorInput',
         template: `
             <form>
+                <span class="close">Close</span>
                 <label>
                 Left Color
                 <input name="left" placeholder="colorCode">
@@ -57,11 +58,17 @@
                 }
                 eventHub.emit('color-inputed', colorValues);
             })
+
+            this.view.$el.addEventListener('click', (e) => {
+                if (e.target && e.target.nodeName.toUpperCase() == "span") {
+                    this.view.$el.classList.remove('active')
+                }
+            })
         },
 
         bindEventHub(){
             eventHub.on('open-color-input', ()=>{
-                this.view.$form.classList.add('active')
+                this.view.$el.classList.add('active')
             })
         }
     };
