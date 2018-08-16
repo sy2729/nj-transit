@@ -60,7 +60,7 @@
             })
 
             this.view.$el.addEventListener('click', (e) => {
-                if (e.target && e.target.nodeName.toUpperCase() == "span") {
+                if (e.target && e.target.classList[0] === "close") {
                     this.view.$el.classList.remove('active')
                 }
             })

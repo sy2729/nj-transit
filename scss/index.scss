@@ -27,6 +27,8 @@ ul > li {list-style: none;}
 body {
     margin: 0;padding: 0;
     background-color: #fff;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .top {
@@ -155,11 +157,10 @@ footer {
 #colorInput {
     position: absolute;
     bottom: 0;
-    display: none;
     transition: transform .4s ease;
-    transform: translateY(50px);
+    transform: translateY(100%);
     background: #f4f4f4;
-    height: 300px;
+    height: px(400);
     width: 100%;
     
     &.active {

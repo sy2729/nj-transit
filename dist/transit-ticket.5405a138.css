@@ -20,7 +20,9 @@ ul > li {
 body {
   margin: 0;
   padding: 0;
-  background-color: #fff; }
+  background-color: #fff;
+  height: 100vh;
+  overflow: hidden; }
 
 .top {
   width: 18.75rem;
@@ -116,11 +118,10 @@ footer {
 #colorInput {
   position: absolute;
   bottom: 0;
-  display: none;
   transition: transform .4s ease;
-  transform: translateY(50px);
+  transform: translateY(100%);
   background: #f4f4f4;
-  height: 300px;
+  height: 12.5rem;
   width: 100%; }
   #colorInput.active {
     transform: translateY(0);

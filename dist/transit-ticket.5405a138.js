@@ -343,7 +343,7 @@ window.eventHub = {
             });
 
             this.view.$el.addEventListener('click', function (e) {
-                if (e.target && e.target.nodeName.toUpperCase() == "span") {
+                if (e.target && e.target.classList[0] === "close") {
                     _this.view.$el.classList.remove('active');
                 }
             });
@@ -450,7 +450,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '49304' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '62445' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
