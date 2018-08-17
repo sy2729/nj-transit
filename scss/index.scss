@@ -27,7 +27,7 @@ ul > li {list-style: none;}
 body {
     margin: 0;padding: 0;
     background-color: #fff;
-    height: 100vh;
+    // height: 100vh;
     overflow: hidden;
 }
 
@@ -157,15 +157,17 @@ footer {
 #colorInput {
     position: absolute;
     bottom: 0;
-    transition: transform .4s ease;
+    visibility: hidden;
+    // transition: transform .4s ease;
     transform: translateY(100%);
     background: #f4f4f4;
     height: px(400);
     width: 100%;
     
     &.active {
-        transform: translateY(0);
-        display: block;
+        animation: slideUp .8s ease-in-out forwards;
+        // transform: translateY(0);
+        // display: block;
     }
 
     form {
@@ -188,4 +190,9 @@ footer {
             top: px(20);
         }
     }
+}
+
+@keyframes slideUp {
+    from{transform: translateY(100%); visibility: hidden;}
+    to{transform: translateY(0); visibility: visible;}
 }

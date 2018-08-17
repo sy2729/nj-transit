@@ -304,7 +304,7 @@ window.eventHub = {
 {
     var view = {
         el: '#colorInput',
-        template: '\n            <form>\n                <span class="close">Close</span>\n                <label>\n                Left Color\n                <input name="left" placeholder="colorCode">\n                </label>\n                <label>\n                Middle Color\n                <input name="middle" placeholder="colorCode">\n                </label>\n                <label>\n                Right Color\n                <input name="right" placeholder="colorCode">\n                </label>\n\n                <input type="submit" value="Change">\n            </form>\n        ',
+        template: '\n            <form>\n                <span class="close">Close</span>\n                <label>\n                Left Color\n                <input name="left" placeholder="colorCode" type=\'color\'>\n                </label>\n                <label>\n                Middle Color\n                <input name="middle" placeholder="colorCode" type=\'color\'>\n                </label>\n                <label>\n                Right Color\n                <input name="right" placeholder="colorCode" type=\'color\'>\n                </label>\n\n                <input type="submit" value="Change">\n            </form>\n        ',
 
         init: function init() {
             this.$el = document.querySelector(this.el);
@@ -340,6 +340,7 @@ window.eventHub = {
                     colorValues.right = _this.view.$form.right.value;
                 }
                 eventHub.emit('color-inputed', colorValues);
+                _this.view.$el.classList.remove('active');
             });
 
             this.view.$el.addEventListener('click', function (e) {
@@ -450,7 +451,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '59960' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60354' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

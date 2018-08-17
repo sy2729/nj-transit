@@ -6,15 +6,15 @@
                 <span class="close">Close</span>
                 <label>
                 Left Color
-                <input name="left" placeholder="colorCode">
+                <input name="left" placeholder="colorCode" type='color'>
                 </label>
                 <label>
                 Middle Color
-                <input name="middle" placeholder="colorCode">
+                <input name="middle" placeholder="colorCode" type='color'>
                 </label>
                 <label>
                 Right Color
-                <input name="right" placeholder="colorCode">
+                <input name="right" placeholder="colorCode" type='color'>
                 </label>
 
                 <input type="submit" value="Change">
@@ -57,6 +57,7 @@
                     colorValues.right = this.view.$form.right.value;
                 }
                 eventHub.emit('color-inputed', colorValues);
+                this.view.$el.classList.remove('active')
             })
 
             this.view.$el.addEventListener('click', (e) => {
