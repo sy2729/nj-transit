@@ -3,6 +3,7 @@ import {  } from "./js/eventHub";
 import {  } from "./js/timer";
 import {  } from "./js/color";
 import {  } from "./js/color-input";
+import { } from "./js/header-color-picker";
 
         function CountDown(ele, duration){
             this.ele = ele;
@@ -51,4 +52,9 @@ import {  } from "./js/color-input";
         // listen to color-input component Open
         document.querySelector('#back').addEventListener('click', ()=>{
             eventHub.emit('open-color-input');
+        })
+
+        // listen to head-color-input component Open
+        document.querySelector('.top').addEventListener('click', () => {
+            eventHub.emit('open-head-color-input');
         })

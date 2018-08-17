@@ -360,6 +360,66 @@ window.eventHub = {
 
     controller.init(view, model);
 }
+},{}],"js/header-color-picker.js":[function(require,module,exports) {
+{
+    var view = {
+        el: '#headColorInput',
+        template: '\n            <form>\n                <label>\n                Right Color\n                <input name="color" placeholder="colorCode" type=\'color\'>\n                </label>\n\n                <input type="submit" value="Change">\n            </form>\n        ',
+
+        init: function init() {
+            this.$el = document.querySelector(this.el);
+        },
+        render: function render() {
+            this.$el.innerHTML = this.template;
+            this.$form = this.$el.querySelector('form');
+        }
+    };
+
+    var model = {
+        data: {}
+    };
+
+    var controller = {
+        init: function init(view, model) {
+            this.view = view;
+            this.model = model;
+            this.view.init();
+            this.view.render();
+            this.bindEvent();
+            this.bindEventHub();
+        },
+        bindEvent: function bindEvent() {
+            var _this = this;
+
+            this.view.$el.addEventListener('submit', function (e) {
+                e.preventDefault();
+                var colorValues = {};
+                if (e.target && e.target.nodeName.toUpperCase() == "FORM") {
+                    colorValues.color = _this.view.$form.color.value;
+                }
+                // eventHub.emit('color-inputed', colorValues);
+                console.log(colorValues);
+                document.querySelector('.top').style.background = 'linear-gradient(180deg, ' + colorValues.color + ' 0%, rgba(255,255,255,1) 50%, ' + colorValues.color + ' 100%)';
+                _this.view.$el.classList.remove('active');
+            });
+
+            this.view.$el.addEventListener('click', function (e) {
+                if (e.target && e.target.classList[0] === "close") {
+                    _this.view.$el.classList.remove('active');
+                }
+            });
+        },
+        bindEventHub: function bindEventHub() {
+            var _this2 = this;
+
+            eventHub.on('open-head-color-input', function () {
+                _this2.view.$el.classList.add('active');
+            });
+        }
+    };
+
+    controller.init(view, model);
+}
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
@@ -372,6 +432,8 @@ require("./js/timer");
 require("./js/color");
 
 require("./js/color-input");
+
+require("./js/header-color-picker");
 
 function CountDown(ele, duration) {
     this.ele = ele;
@@ -422,7 +484,12 @@ time.startCount();
 document.querySelector('#back').addEventListener('click', function () {
     eventHub.emit('open-color-input');
 });
-},{"./scss/index.scss":"scss/index.scss","./js/eventHub":"js/eventHub.js","./js/timer":"js/timer.js","./js/color":"js/color.js","./js/color-input":"js/color-input.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+// listen to head-color-input component Open
+document.querySelector('.top').addEventListener('click', function () {
+    eventHub.emit('open-head-color-input');
+});
+},{"./scss/index.scss":"scss/index.scss","./js/eventHub":"js/eventHub.js","./js/timer":"js/timer.js","./js/color":"js/color.js","./js/color-input":"js/color-input.js","./js/header-color-picker":"js/header-color-picker.js"}],"../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -451,7 +518,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '60354' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '53979' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 

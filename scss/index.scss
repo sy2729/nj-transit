@@ -154,7 +154,7 @@ footer {
 }
 
 // input color
-#colorInput {
+.color-input {
     position: absolute;
     bottom: 0;
     visibility: hidden;
@@ -169,7 +169,9 @@ footer {
         // transform: translateY(0);
         // display: block;
     }
+}
 
+#colorInput {
     form {
         display: flex;
         height: 100%;
